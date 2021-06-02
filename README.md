@@ -1,5 +1,5 @@
 # This is CS50 Baby # 
-A web application for recording a baby's sleeping habits.
+An application for recording a baby's sleeping habits.
 View a walkthrough [here](https://www.youtube.com/watch?v=yfLQD_pZjPs&t=1s).
 
 ## Description ##
