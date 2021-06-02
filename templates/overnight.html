@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Overnight
+{% endblock %}
+
+{% block main %}
+    <div style="overflow-x:auto;">
+    <form action = "/overnight" method="post" id="overnight">
+        <div class="header">
+            <h1>
+                How much did your baby sleep overnight?
+            </h1>
+        </div>
+        <div id="overnight_date">
+            <h4>
+                Enter date here:
+                <input type="date" id="date" name="date">
+                (Choose the date of the wakeup.)
+            </h4>
+        </div>
+        <div class="row">
+            <div class="col-5 menu">
+                <label for="bedtime">Bedtime:</label>
+                <select name="bedtime" id="bedtime">
+                    <option value="6:00 PM">6:00 PM</option>
+                    <option value="6:30 PM">6:30 PM</option>
+                    <option value="7:00 PM">7:00 PM</option>
+                    <option value="7:30 PM">7:30 PM</option>
+                    <option value="8:00 PM">8:00 PM</option>
+                    <option value="8:30 PM">8:30 PM</option>
+                    <option value="9:00 PM">9:00 PM</option>
+                    <option value="9:30 PM">9:30 PM</option>
+                    <option value="10:00 PM">10:00 PM</option>
+                </select>
+                <label for="wakeup">Wakeup:</label>
+                <select name="wakeup" id="wakeup">
+                    <option value="5:00 AM">5:00 AM</option>
+                    <option value="5:30 AM">5:30 AM</option>
+                    <option value="6:00 AM">6:00 AM</option>
+                    <option value="6:30 AM">6:30 AM</option>
+                    <option value="7:00 AM">7:00 AM</option>
+                    <option value="7:30 AM">7:30 AM</option>
+                    <option value="8:00 AM">8:00 AM</option>
+                    <option value="8:30 AM">8:30 AM</option>
+                    <option value="9:00 AM">9:00 AM</option>
+                </select>
+            </div>
+            <div class="col-7 main">
+                <p>
+                    Number of nighttime wakes:
+                    <input type="text" id="wakes" name="wakes" value="0">
+                </p>
+                <p>
+                    Minutes per nighttime wake: 
+                    <input type="text" id="wakelen" name="wakelen" value="0">
+                </p>
+            </div>
+        </div>
+        <p>
+            <input type="submit" id="naps">
+        </p>
+        <h6>
+            Note: Resubmitting times will update the nap times for the day.
+        </h6>
+    </div>
+{% endblock %}

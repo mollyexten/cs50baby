@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- https://favicon.io/emoji-favicons/baby/ -->
+        <link href="/static/favicon.ico" rel="icon">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <title>CS50 BABY: {% block title %}{% endblock %}</title>
+        
+        <style>
+            *
+            {
+                box-sizing: border-box;
+            }
+            
+            table
+            {
+                width: 100%;
+            }
+            
+            th
+            {
+                text-align: left;
+                background-color: #8080ff;
+                color: white;
+            }
+            
+            th, td
+            {
+                padding: 15px;
+                text-align: left;
+            }
+            
+            tr:nth-child(even) {background-color: #f2f2f2;}
+            
+            .row::after
+            {
+                content: "";
+                clear: both;
+                display: table;
+            }
+            
+            .header
+            {
+                background-color: #8080ff;
+                color: #ffffff;
+                padding: 15px;
+            }
+            
+            #overnight_date
+            {
+                background-color: #ceceff;
+                padding: 15px;
+                float: left;
+                margin: 0;
+                width: 100%;
+            }
+            
+            .menu
+            {
+                margin: 0;
+                padding: 15px;
+                background-color: #f2f2f2;
+                float: left;
+            }
+            
+            .main
+            {
+                margin: 0;
+                padding: 15px;
+                float: left;
+            }
+            
+            /* For desktop: */
+            .col-1 {width: 8.33%;}
+            .col-2 {width: 16.66%;}
+            .col-3 {width: 25%;}
+            .col-4 {width: 33.33%;}
+            .col-5 {width: 41.66%;}
+            .col-6 {width: 50%;}
+            .col-7 {width: 58.33%;}
+            .col-8 {width: 66.66%;}
+            .col-9 {width: 75%;}
+            .col-10 {width: 83.33%;}
+            .col-11 {width: 91.66%;}
+            .col-12 {width: 100%;}
+
+            @media only screen and (max-width: 1000px) 
+            {
+                /* For mobile phones: */
+                .menu, .main
+                {
+                    width: 100%;
+                 }
+                 
+            }
+            
+            #naps
+            {
+                font-size: 20px;
+                border-radius: 8px;
+                background-color: white;
+                border: 2px solid #8080ff;
+            }
+                
+            
+        </style>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light border">
+            <a class="navbar-brand" href="/"><span class="blue">C</span><span class="red">S</span><span class="yellow">5</span><span class="green">0</span> <span class="red">BABY</span></a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                {% if session.user_id %}
+                    <ul class="navbar-nav mr-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/overnight">Overnight</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/naps">Naps</a></li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                    </ul>
+                {% else %}
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                    </ul>
+                {% endif %}
+            </div>
+        </nav>
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary border text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        <main class="container p-5">
+            {% block main %}{% endblock %}
+        </main>
+        
+
+    </body>
+
+</html>

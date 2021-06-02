@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Baby Sleep Log
+{% endblock %}
+
+{% block main %}
+    <div style="overflow-x:auto;">
+    <h1>
+        Baby Sleep Log
+    </h1>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Naps per Day</th>
+            <th>Avg. Nap Length</th>
+            <th>Total Nap Length</th>
+            <th>Total Overnight Sleep</th>
+            <th>Nighttime Wakes</th>
+            <th>Total Sleep</th>
+        </tr>
+        {% for row in sleep_log %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{% if row[2] is number %}
+                    {{ row[2] }} minutes
+                {% else %}
+                    {{ row[2] }}
+                {% endif %}
+            </td>
+            <td>
+                {% if row[3] is number %}
+                    {{ (row[3]//60) }} hours {{ (row[3]%60) }} minutes
+                {% else %}
+                    {{ row[3] }}
+                {% endif %}
+            </td>
+            <td>
+                {% if row[4] is number %}
+                    {{ (row[4]//60) }} hours {{ (row[4]%60) }} minutes
+                {% else %}
+                    {{ row[4] }}
+                {% endif %}
+            </td>
+            <td>{{ row[5] }}</td>
+            <td>
+                {% if row[6] is number %}
+                    {{ (row[6]//60) }} hours {{ (row[6]%60) }} minutes
+                {% else %}
+                    {{row[6] }}
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+{% endblock %}

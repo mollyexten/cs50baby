@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Naps
+{% endblock %}
+
+{% block main %}
+    <div style="overflow-x:auto;">
+    <form action="/naps" method="post">
+        <div class="header">
+        <h1>
+            How much did your baby nap?
+        </h1>
+        </div>
+        <div class="row">
+            <div class="col-5 menu">
+                <h4>
+                    Enter date here:
+                    <input type="date" id="date" name="date">
+                </h4>
+            </div>
+            <div class="col-7 main">
+                <h4>
+                    Enter time in minutes.
+                </h4>
+                <h4>
+                    Morning Nap:
+                    <input type="text" id="morningnap" name="morningnap" value="0">
+                </h4>
+                <h4>
+                    Afternoon Nap:
+                    <input type="text" id="afternoonnap" name="afternoonnap" value="0">
+                </h4>
+                <h4>
+                    Evening Nap:
+                    <input type="text" id="eveningnap" name="eveningnap" value="0">
+                </h4>
+            </div>
+        </div>
+        <div class="footer">
+            <input type="submit" id="naps">
+                <h6>
+                    Note: Resubmitting times will update the nap times for the day.
+                </h6>
+        </div>
+    </div>
+{% endblock %}
